@@ -53,11 +53,34 @@ void preorder(Node *p)
 	}
 
 }
+void iterative_preorder(Node *p)
+{
+	stack *top =NULL;	
+	Node * temp;
+while(p)
+{
+	if(p)
+	{
+		printf("%d ",p->data);
+		push(&top,p);
+		p=p->lchild;
+
+	}
+	else
+	{
+		temp = pop(&top);
+		p=p->rchild;
+	}
+}
+
+}
 int main()
 {
+
 	treecreate();
 	preorder(root);
-	
+printf("Iterative preorder:\n");
+	iterative_preorder(root);
 
 	return 0;
 }
